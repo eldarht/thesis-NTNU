@@ -1,0 +1,31 @@
+\tikzset{
+  box/.style={
+    draw,
+    rectangle,
+    fill=white,
+    align=center,
+  },
+  line/.style={draw, -latex}
+}
+
+\begin{tikzpicture}[]
+
+    % Context - Inner
+    \begin{scope}[on background layer]
+        \node[box, text width=\textwidth, text height=\textheight/9]  (nodes) {};
+        \node[box, below=1mm of nodes, text width=\textwidth, text height=\textheight/9] (relations) {};
+        \node[box, below=1mm of relations, text width=\textwidth, text height=\textheight/9]  (misc) {};
+    \end{scope}
+
+    %Layer text
+    \node[box, left=-2cm of nodes, text width=2cm, minimum height=\textheight/9+2.5mm] (nstart) {Nodes};
+    \node[box, left=-2cm of relations, text width=2cm, minimum height=\textheight/9+2.5mm] (astart) {Relations};
+    \node[box, left=-2cm of misc, text width=2cm, minimum height=\textheight/9+2.5mm] (mstart) {Misc};
+    
+    %Nodes
+
+    \node[api, draw, right=of nstart] (s) {<API/Interface name>};
+    \path[line] (mstart) -- (s.west);
+    
+
+\end{tikzpicture}

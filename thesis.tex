@@ -1,19 +1,33 @@
 \documentclass[british,titlepage]{ntnuthesis}
 
-\title{An NTNU Thesis \LaTeX{} Document Class}
-\shorttitle{An NTNU Thesis Document Class}
-\author{Community of Practice in Computer Science Education at NTNU}
-\shortauthor{CoPCSE$@$NTNU}
-\date{CC-BY \ntnuthesisdate}
+\usepackage{tikz} \usetikzlibrary{arrows, backgrounds, external, fit, positioning, shapes, trees}
+\usepackage{rotating}
+\usepackage{multirow}
+\usepackage{longtable}
+\usepackage{lscape}
+
+\title{Enterprise architecture to support learning in and across cities}
+\shorttitle{EA to support learning in cities}
+\author{Eldar Hauge Torkelsen}
+\shortauthor{Torkelsen, Eldar H.}
+\date{2021/06/22}
+
+% Reuse tikz pictures instead of recompile
+%\tikzexternalize[prefix=tikz/]
 
 \addbibresource{thesis.bib}
 
 \input{glossary.tex} % add glossary and acronym lists before document
 
+% Configure package settings
+\input{config/tikz-shapes}
 \begin{document}
 
-\input{chapters/0a-abstract.tex}
-\input{chapters/0b-sammendrag.tex}
+\input{config/tikz-config}
+
+\input{chapters/0a-acknowledgement}
+\input{chapters/0b-abstract}
+\input{chapters/0c-sammendrag}
 
 \tableofcontents
 \listoffigures
@@ -24,16 +38,23 @@
 \printglossary                    % Print glossary
 
 \input{chapters/1-introduction}
-\input{chapters/2-usage.tex}
-\input{chapters/3-structure.tex}
-\input{chapters/4-conclusion.tex}
+\input{chapters/2-literature-review}
+\input{chapters/3-methodology}
+\input{chapters/4-gathering-data-from-cityxchange}
+\input{chapters/5-cityxchange-eaf-evaluation}
+\input{chapters/6-proposed-model}
+\input{chapters/7-model-evaluation}
+\input{chapters/8-results-and-discussion}
+\input{chapters/9-conclusion}
 
 \chapter*{\bibname}
 \printbibliography[heading=none]
 
-\input{chapters/papers.tex}
+%
+%\input{chapters/papers.tex}
 
 \appendix
-\input{appendices/a-appendix.tex}
+\input{appendices/a-questionnaire}
+%\input{appendices/a-appendix.tex}
 
 \end{document}

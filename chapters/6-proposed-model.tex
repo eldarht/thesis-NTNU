@@ -1,0 +1,54 @@
+\chapter{Proposed model}
+\label{chap:model}
+This section describes the proposed enhancements to the  +CityxChange \gls{eaf} to promote learning across cities in smart city development projects.
+\section{Developed model} % or framework/tool/system add subsection by need
+
+When developing the new model, as many issues as possible, from the original, should be solved. But there is a trade-off between complexity and coverage. Complexity should be low to encourage use by non-experts while coverage should be high to allow use in multiple situations and for correct usage. 
+
+\subsection{Enhancements of the development process}
+\input{figures/4-architecture-development-after}
+
+The development process of an \gls{ea} has been altered, as shown in figure \ref{fig:4-architecture-development-after}, to allow for consideration of elements that are relevant to learning. It is meant as a guide and not meant to be used as a hard requirement. More specifically; three steps have been added.
+\begin{itemize}
+    \item \textbf{Consider users}: Added due to learning and \gls{ea} being concepts that are intrinsically linked to human efficiency and behaviour.
+    \item \textbf{Knowledge identification}: Added as it is believed that the \gls{ea} model by itself will not be able to sufficiently cover everything each individual needs for learning, but can still guide the individual towards important information. It also forces the \gls{ea} architects to consider how knowledge is created within the system.
+    \item \textbf{Resource identification}: Added due to resources being a concept that is repeatedly mentioned in the literature. Both when it comes to innovation and within smart city development due to the multi stakeholder context.
+\end{itemize}
+
+\input{tables/4-mindset-properties}
+Figure \ref{fig:4-architecture-development-after} also adds questions one can have in mind while developing the \gls{ea} model. The questions are called mindsets and are meant to make the intention behind the \gls{ea} model clearer to the architect and make them consider knowledge flows. A mindset in this context is a perspective or set of ideas that can influence decisions. This semi-structured approach is used as the concept of "learning" is hard to define or achieve in a rigid environment. The mindsets are a result of viewing the \gls{ea} model as a \gls{boundary object}, It does not use the specific terminology within the diagram, as it is not expected that the \gls{ea} architects are familiar with the concept. Table \ref{tab:4-mindset-properties} shows how the terminology applies to the mindsets. 
+
+\subsection{Enhancements of the EAF}
+\input{figures/4-architecture-after}
+
+As shown in figure \ref{fig:4-architecture-after} and \ref{fig:4-architecture-elements} the \gls{eaf} has been expanded and more architectural elements have been added. Although this could intuitively increase complexity, the intent is that a further segmentation of the domain and greater specificity with better concreteness, shared syntax and visualization, can make the model more intuitive and allow more relevant views for individuals. 
+
+The original context layer has been expanded to three layers; "goals and \glspl{kpi}", "Team structures" and "processes and internal initiatives". The "goals and \glspl{kpi}" layer is intended to be used like the context layer was used in the original. It contains the core motivations behind the system(s) being developing. Figure \ref{fig:4-architecture-after} shows this layer being accentuated. This is because it is considered to be vital for decision making. "Team structures" and "Processes and internal initiatives" were placed above, not because of higher significance, but because they are further removed from the application and physical infrastructure layers. The added "Team structures" layer is for documenting internal teams working on development. It is intended to help understand how knowledge flows between people and groups. It is different from the layer in the origin \gls{eaf} called "Business (Virtual Enterprise)" and called "Enterprise collaboration" in the proposed \gls{eaf} in that the collaboration layer contains companies or stakeholders involved in the development rather than internal structures that might be specific to each stakeholder. "Processes and internal initiatives" is the final layer that has been changed from the original. It is meant to capture more of the knowledge flows by adding processes that are initiated and heavily governed by peoples, such as daily meetings and workshops. 
+
+\subsection{Addition EA elements}
+\input{figures/4-architecture-elements}
+Figure \ref{fig:4-architecture-elements} shows the proposed elements that can be used to create the \gls{ea} models. It is meant to supplement or enhance the elements in \gls{togaf}. \gls{togaf} was used as a base due to its current use within +CityxChange and recommendation by multiple relevant articles \cite{7580810, pourzolfaghar2016types}.
+Some of the elements, such as aggregation and indirect connections, have been added to allow views to partially be created logically from a base \gls{ea} model allowing further hiding of irrelevant information. while other elements are meant to include knowledge related components or better represent the smart city context.
+
+\begin{itemize}
+    \item \textbf{Api/interface} element is an alteration of the \gls{togaf} interface elements. It has been changed so that it is more clearly differentiated from the other elements. This was done as the \glspl{api} were a topic mentioned repeatedly in +CityxChange meetings and are seen as important parts of the \gls{ea}.
+    \item \textbf{Document} element is a  more general version of \gls{togaf} artefact that also has a \gls{url}/\gls{uri}. This \gls{url}/\gls{uri} was added to improve the accessibility of the document.\Gls{the open group} defines an artefact as "a physical piece of data that is used or produced in a software development process, or by deployment and operation of a system."\cite{archilayer}. The proposed document is not tied to the software, but can be things like meeting notes.
+    \item \textbf{Team component} was added because humans are the core of any knowledge related activity.
+    \item \textbf{Indirect relation} was added to allow hiding of connected elements in certain views without hiding the connections between the other elements.
+    \item \textbf{Knowledge flow} shows how knowledge flows in the \gls{ea} and was added to make knowledge information more specific.
+    \item \textbf{Broken relation} shows that a connection is expected or preferred, but not implemented. This was added to visualise potential areas for improvement or innovation.
+    \item \textbf{Required relation} shows that a connection can not be removed without significant work. This was added to allow separate communities to give additional information about what is necessary from their perspective.
+    \item \textbf{Relation aggregation} was added as the multi stakeholder context often require many to one connections and a way to remove clutter could improve visualisation. It might also be beneficial for views where components with several connections are hidden. 
+    \item \textbf{Importance indicator} is meant to attach to other components to indicate that the user of the \gls{ea} model might want to consider that component. It can be relevant to add this to specific views as importance is dependent on perspective.
+    \item \textbf{Resources} elements expand the \gls{togaf} resource element with four more specific version and a new notation. The versions are human financial, intellectual and physical resources respectively. These were added based on their importance for innovation capabilities.
+    \item \textbf{Physical entities} were added as the smart city concept often revolve around physical infrastructure such as chargers for \gls{emaas}, sensors for data gathering and smart grids. The \gls{togaf} node element is changed into a physical misc element for generic physical components and specific elements were added for measurement, computation devices and locations.
+    \item \textbf{Knowledge processes} were added to show how the knowledge flows within the \gls{ea}, how it is shared and how it is recorded.
+\end{itemize}
+ 
+Some of the unchanged elements from \gls{togaf} that are seen as important are; the influence relation, the stakeholder and goals/\gls{kpi} related elements, principle element and note. 
+\input{tables/4-element-attributes}
+
+Table \ref{tab:4-element-attributes} shows a more detailed view of the suggested elements. It adds attributes on some elements that might not be visible on the component, but can be added in a digital representation and viewed when a component is selected.  
+
+\section{Summary}
+This chapter presented an enhanced \gls{eaf} along with a \gls{ea} development process and \gls{ea} elements that can be used to represent an \gls{ea} that could support the transfer of learning across cities. The model builds on the +CityxChange \gls{eaf} and \gls{togaf}, and is intended to promote learning in a smart city context.

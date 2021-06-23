@@ -1,7 +1,52 @@
 \chapter{Introduction}
-
+\label{chap:introduction}
+\iffalse %-----------------------------------------------------------------------------------
 Over the years, several thesis templates for \LaTeX{} have been developed by different groups at NTNU. Typically, there have been local templates for given study programmes, or different templates for the different study levels – bachelor, master, and \acrshort{phd}.\footnote{see, e.g., \url{https://github.com/COPCSE-NTNU/bachelor-thesis-NTNU} and \url{https://github.com/COPCSE-NTNU/master-theses-NTNU}}
 
 Based on this experience, the \acrfull{CoPCSE}\footnote{\url{https://www.ntnu.no/wiki/display/copcse/Community+of+Practice+in+Computer+Science+Education+Home}} is hereby offering a template that should in principle be applicable for theses at all study levels. It is closely based on the standard \LaTeX{} \texttt{report} document class as well as previous thesis templates. Since the central regulations for thesis design have been relaxed – at least for some of the historical university colleges now part of NTNU – the template has been simlified and put closer to the default \LaTeX{} look and feel.
 
 The purpose of the present document is threefold. It should serve (i) as a description of the document class, (ii) as an example of how to use it, and (iii) as a thesis template.
+\fi     %-------------------------------------------------------------------------------------
+
+This chapter will introduce the problems this thesis addresses, their context and how they will be addressed. 
+
+\section{Overview}
+Smart city is a concept that has gained traction in resent years. This can be seen through projects such as +CityxChange \cite{cityxchange}, Triangulum \cite{triangulum}, \gls{scis} and their connection to EU H2020. Cities that intend to be smart must allow for continuous innovation and sustainable use of resources while supporting a high quality of life for its citizens. \gls{ea} has been used to support this \cite{kakarontzas2014, gobin2020systematic, bastidas2017cities} development by using or proposing different \glspl{eaf} and modelling the development context and to act as a framework for standardising development efforts. 
+
+There are multiple definitions of smart cities, \cite{fernandez2016stakeholders} defines smart cities as "A system that enhances human and social capital wisely using and interacting with natural and economic resources via technology-based solutions and innovation to address public issues and efficiently achieve sustainable development and a high quality of life on the basis of a multi-stakeholder, municipally based partnership."\cite[p.~164]{fernandez2016stakeholders}. It mentions that innovation is an important part of the definition and that the goals of smart cities are equally sustainability, quality of life and efficiency. For the purpose of this thesis, a smart city can be seen as any city that continuously innovates or improves based on a set of sustainable goals or \glspl{kpi} inline with the general public's best interest and obtain the necessary data to evaluate and meet its goals.
+
++CityxChange and Triangulum are European lighthouse projects with so called lighthouse cities that should innovate and provide solutions that follower cities can implement themselves, by replicating or using solutions from the lighthouse cities as inspiration for their own smart city planning projects.
+
+Replication of smart city solutions is difficult \cite{vandevyvere2018may}. \cite{vandevyvere2018may} mentions 6 factors from smart city and community projects that may prevent replication. These factors are loosely that replication has little interest from stakeholders in lighthouse cities, focus on current efficiency limits opportunities for innovation, cities consider themselves too unique for existing solutions, non financial benefits can be hard to gauge, existing regulations and vested interests and politicians may refrain from implementing concrete measures.
+It also mentions that smart cities will require citizens to change their behaviour to some degree, thereby meeting resistance from the general public.
+
+\section{Problem statement}
+Although replication has been researched, how cities learn from each other and the role of \gls{ea} in facilitating learning in a smart city project or initiative has very little research. The author of this thesis considers this to be a critical problem in current smart city projects, especially lighthouse projects. The goal of their projects is to innovate and learn from each other, but there are no best practices for this. As smart cities contain complex interconnected \gls{ict} systems and multiple stakeholders with contradicting motives, there should be documentation in place to ensure a common vision and understanding of the problems. Without this documentation it will be harder to gauge the effectiveness of the projects and trace misconceptions or faults. This thesis consider \gls{ea} as the most fitting approach to documentation for this problem. Although \gls{ea} has mostly been part of \gls{it} or computer science, its main focus is on humans or maximising human efficiency \cite{cameron2013analyzing}. The problem is knowing what \gls{ea} needs to capture to facilitate learning and how the information should be displayed. As the \gls{ea} will have to display a comprehensive abstraction of complex system, it will have to be limited to show relevant information while hiding irrelevant information. 
+
+\section{Research questions} % Reflect research objective
+
+This thesis aims to answer these research questions:
+\begin{enumerate}[label=\textbf{RQ\arabic*:}, wide=1em, leftmargin=4em, labelsep=*]
+    \item How is \gls{ea} currently being used to enhance learning in smart city projects?
+    \item How can cities benefit from \gls{ea} documentation of working smart city solutions?
+    \item How can \gls{ea} be used to enhance transfer of knowledge from lighthouse cities to follower cities?
+    \item What should \gls{eaf} capture to enhance learning in lighthouse projects?
+\end{enumerate}
+
+\section{Research aim}
+
+The research aims to evaluate the potential of \gls{ea} as it relates to the facilitation of innovation, discussions, communication and learning in and from smart city projects. It will also assess which parts of \gls{ea} facilitate learning or can be extended to do so. 
+The research aims to use its finding to propose an \gls{eaf} that can enhance learning within smart city projects.
+
+\section{Research objective} % Reflect research questions
+
+The objectives of this study are to:
+\begin{enumerate}[label=\textbf{RO\arabic*:}, wide=1em, leftmargin=4em, labelsep=*]
+    \item Gain a better understanding of how the current state of \gls{ea} facilitates learning and how the proposed smart city \glspl{eaf} diverge. 
+    \item Understand which aspects of \gls{ea} is perceived to be of use and enhance learning in smart city projects. % does this clearly relate to TAM questionnaire 
+    \item Understand how \gls{ea} can transfer and retain knowledge within an organisation and shared with other organisations.
+    \item Provide recommendations for improvement to the \gls{eaf} used in +CityxChange.
+\end{enumerate}
+
+\section{Thesis structure}
+The next chapter covers a literature review to establish the current state of the research on the topic. In chapter 3 the methodology for the research is documented. Chapter 4 presents a survey conducted with +CityxChange. Chapter 5 looks at the \gls{eaf} used in +CityxChange. In chapter 6 a model based on the findings is proposed. This model is evaluated in chapter 7. Then, in chapter 8 the results are presented and discussed. Finally the conclusion of the thesis is presented in chapter 9, followed by references and appendices.

@@ -1,0 +1,57 @@
+\tikzset{
+  box/.style={
+    draw,
+    rectangle,
+    minimum height=1cm,
+    fill=white,
+    align=center,
+    inner sep=1ex
+  }
+}
+
+\begin{tikzpicture}[]
+    \iffalse
+    \begin{scope}[on background layer]
+         \node at (-0.5,-3) [box, minimum width=2.5cm, text width=1.8cm, minimum height=9cm, fill=cyan, align=north] (planning) {Integrated Planning and design};
+        \node[box, minimum width=2.5cm, text width=1.8cm, minimum height=9cm, fill=cyan, right= 2mm of planning] (common) {Common energy market};
+        \node[box, minimum width=2.5cm, text width=1.8cm, minimum height=9cm, fill=cyan, right= 2mm of common] (community) {Community- xChange};   
+    \end{scope}
+    \fi
+    %Horizontal - Inner
+    \node[box, opacity=0.8, text width=\textwidth/2]  (process) {processes and internal initiatives};
+    \node[box, opacity=0.8, text width=\textwidth/2, below=2mm of process]  (team) {Team structures};
+    \node[box, opacity=0.8, below=2mm of team, text width=\textwidth/1.8]  (goal) {Goals and KPIs};
+    \node[box, opacity=0.8, below=2mm of goal, text width=\textwidth/2] (service) {Value Added Services};
+    \node[box, opacity=0.8, below=2mm of service, text width=\textwidth/2]  (business) {Enterprise cooperation};
+    \node[box, opacity=0.8, below=2mm of business, text width=\textwidth/2]  (application) {Application and Data Processing};
+    \node[box, opacity=0.8, below=2mm of application, text width=\textwidth/2]  (data) {Data Space};
+    \node[box, opacity=0.8, below=2mm of data, text width=\textwidth/2]  (technology) {Technologies};
+    \node[box, opacity=0.8, below=2mm of technology, text width=\textwidth/2]  (physical) {Physical Infrastructure};
+
+    % Context - Outer
+    \begin{scope}[on background layer]
+        \node[box, opacity=0.1, inner sep=1ex, fit=(process) (team) (goal) (service) (business) (application) (data) (technology) (physical)] (main) {};
+    \end{scope}
+
+    % Stakeholder perspective  - Inner
+    \node[box, minimum height=\textwidth/2, left=of main] (ownership) {\rotatebox{90}{Ownership and access}};
+    \node[box, minimum height=\textwidth/2, left=2mm of ownership] (privacy) {\rotatebox{90}{Privacy \& Trust}};
+    \node[box, minimum height=\textwidth/2, left=2mm of privacy] (policy) {\rotatebox{90}{Policies \& Regulations}};
+    \node[box, minimum height=\textwidth/2, left=2mm of policy] (stakeholder) {\rotatebox{90}{Stakeholders}};
+
+    % Stakeholder perspective  - Outer
+    \begin{scope}[on background layer]
+        \node[box, inner sep=1ex, fit=(stakeholder) (policy) (privacy) (ownership),  label={Stakeholder perspective}] (stakeholder) {};
+    \end{scope} 
+
+    % Data perspective - Inner    
+    \node[box, minimum height=\textwidth/2, right=of main] (interoperability) {\rotatebox{90}{interoperability}};
+    \node[box, minimum height=\textwidth/2, right=2mm of interoperability] (security) {\rotatebox{90}{Data security, Risk assessment}};
+    \node[box, minimum height=\textwidth/2, right=2mm of security] (governance) {\rotatebox{90}{Data Governance}};
+    
+    % Stakeholder perspective  - Outer
+    \begin{scope}[on background layer]
+        \node[box, inner sep=1ex, fit=(interoperability) (security) (governance),  label={Data perspective}] (stakeholder) {};
+    \end{scope} 
+
+\end{tikzpicture}

@@ -1,0 +1,131 @@
+\tikzset{
+  box/.style={
+    draw,
+    rectangle,
+    fill=white,
+    align=center,
+  },
+  application/.style={draw, rectangle, fill=blue!20},
+  api/.style={draw, rectangle split, rectangle split parts=2, rectangle split part fill={green!20,blue!20}},
+  repository/.style={draw, cylinder, rotate=90, fill=blue!20},
+  connect/.style={draw, -latex},
+  realisation/.style={draw, dashed, -latex}
+}
+
+\begin{tikzpicture}[]
+
+    % Context - Inner
+    \begin{scope}[on background layer]
+        \node[box, text width=\textwidth, text height=\textheight/9]  (context) {};
+        \node[box, below=1mm of context, text width=\textwidth, text height=\textheight/9] (service) {};
+        \node[box, below=1mm of service, text width=\textwidth, text height=\textheight/9]  (business) {};
+        \node[box, below=1mm of business, text width=\textwidth, text height=\textheight/9]  (application) {};
+        \node[box, below=1mm of application, text width=\textwidth, text height=\textheight/9]  (+cityxchange) {};
+        \node[box, below=1mm of +cityxchange, text width=\textwidth, text height=\textheight/9]  (technology) {};
+        \node[box, below=1mm of technology, text width=\textwidth, text height=\textheight/9]  (physical) {};
+    \end{scope}
+
+    %Layer text
+    \node[box, left=-2cm of context, text width=2cm, minimum height=\textheight/9+2.5mm] (cstart) {Context Layer};
+    \node[box, left=-2cm of service, text width=2cm, minimum height=\textheight/9+2.5mm] (sstart) {Service Layer};
+    \node[box, left=-2cm of business, text width=2cm, minimum height=\textheight/9+2.5mm] (bstart) {Business Layer};
+    \node[box, left=-2cm of application, text width=2cm, minimum height=\textheight/9+2.5mm] (astart) {Application and Data Processing Layer};
+    \node[box, left=-2cm of +cityxchange, text width=2cm, minimum height=\textheight/9+2.5mm] (dstart) {Data Space Layer};
+    \node[box, left=-2cm of technology, text width=2cm, minimum height=\textheight/9+2.5mm] (tstart) {Technologies Layer};
+    \node[box, left=-2cm of physical, text width=2cm, minimum height=\textheight/9+2.5mm] (pstart) {Physical Infrastructure Layer};
+    
+    %Context layer
+    \node[box, right=2mm of cstart, text width= 3.2cm] (cindicator) {Indicator for eMaaS uptake};
+    \node[box, right=2mm of cindicator, text width= 3.2cm] (ccontibute) {Contribute to uptake of eMaas};
+    \node[box, right=2mm of ccontibute, text width= 3.2cm] (cseamless) {Seamless eMobility concept (of TK)};
+    
+    %service layer
+    \node[box, right=2mm of sstart, text width= 3.2cm] (straffic) {Traffic Management};
+    \node[box, right=2mm of straffic, text width= 3.2cm] (sservice) {eMaas Service};
+    \node[box, right=2mm of sservice, text width= 3.2cm] (sgreen) {Green Mobility Management};
+    
+    %Business layer
+    \node[box, right=2mm of bstart, text width= 2cm] (bpowel) {Powel};
+    \node[box, below=2mm of bpowel, text width= 2cm] (babb) {ABB};
+    \node[box, right=2mm of bpowel, text width= 2cm] (btk) {TK};
+    \node[box, below=2mm of btk, text width= 2cm] (bfourc) {FourC};
+    \node[box, right=2mm of btk, text width= 2cm] (batb) {AtB};
+    \node[box, below=2mm of batb, text width= 2cm] (biota) {IOTA};
+    
+    %Application layer
+    \node[api, right=2mm of astart] (apay){API \nodepart{two} AtB Payment ?};
+    \node[application, right=2mm of apay, text width= 2.8cm] (atraffic) {Total Traffic Control {TTC} Application};
+    \node[application, right=2mm of atraffic, text width= 2.8cm] (aapp) {eM App {Android\textbackslash Web}};
+    \node[api, right=2mm of aapp] (aiota) {API \nodepart{two} IOTA ?};  
+    
+    %Data Space Layer
+    \node[repository, right=8mm of dstart,  xshift=5mm, label=left:{AtB}] (datb) {};
+    \node[repository, below=12mm of datb, label=left:{Flight info}] (dflight) {};
+        \node[box, draw, fill=green!20,xshift=0.5cm,yshift=0.1cm] at (dflight.south) {api};
+    \node[repository, right=25mm of dstart, xshift=5mm, label=left:{Nabobil}] (dnabobil) {};
+    \node[repository, below=12mm of dnabobil, label=left:{ENTUR}] (dentur) {};
+        \node[box, draw, fill=green!20,xshift=0.5cm, yshift=0.1cm] at (dentur.south) {api};
+    \node[repository, right=42mm of dstart, xshift=5mm, label=left:{Road Datex}] (ddatex) {};
+    \node[repository, below=12mm of ddatex, label=left:{ABB DB}] (dabb) {};
+        \node[box, draw, fill=green!20,xshift=0.5cm, yshift=0.1cm] at (dabb.south) {api};
+    \node[repository, right=59mm of dstart, xshift=5mm, label=left:{TTC}] (dttc) {};
+        \node[box, draw, fill=green!20,xshift=0.5cm, yshift=0.1cm] at (dttc.south) {api};
+    \node[repository, below=12mm of dttc, label=left:{City Bikes}] (dbikes) {};
+        \node[box, draw, fill=green!20,xshift=0.5cm, yshift=0.1cm] at (dbikes.south) {api};
+    \node[repository, right=78mm of dstart, xshift=5mm, label=left:{AVIS}] (davis) {};
+        \node[box, draw, fill=green!20,xshift=0.5cm, yshift=0.1cm] at (davis.south) {api};
+    \node[repository, below=12mm of davis, label=left:{Taxi}] (dtaxi) {};
+    \node[repository, right=100mm of dstart, xshift=5mm, label=left:{IOTA}] (diota) {};
+    
+    
+    %Technology Layer
+    \node[box, right=2mm of tstart, text width= 2cm] (tradar) {Radars{\color{red}?}};
+    \node[box, right=6.4cm of tradar, text width= 2cm] (tiota) {IOTA};
+    
+    %Physical Infrastructure Layer
+    \node[box, right=2mm of pstart, text width= 1.1cm] (pflights) {Flights};
+    \node[box, right=2mm of pflights, text width= 1.1cm] (pbuses) {AtB Buses};
+    \node[box, right=2mm of pbuses, text width= 1.1cm] (pev) {EVs};
+    \node[box, right=2mm of pev, text width= 1.5cm] (pcharging) {EV Charging station};
+    \node[box, right=2mm of pcharging, text width= 1.1cm] (pbikes) {City bikes};
+    \node[box, right=2mm of pbikes, text width= 1.1cm] (ptaxis) {ptaxis};
+    
+    %connections from Physical
+    \path [connect] (pbikes.north) -- (dbikes.west); %  (2.3,-14.5)
+    \path [connect] (pbuses.north) -- (dentur.west);
+    \path [realisation] (pev.north) -- (dabb.west);
+    \path [connect] (pcharging.north) --(dabb.west);
+    \path [connect] (pflights.north) -- (tradar.south);
+    \path [connect] (ptaxis.north) -- (dtaxi.west);
+    
+    %connections from Technologies
+    \path [connect] (tradar.north) -- node[right, near start]{{\color{red}?}} (dflight.west);
+    \path [connect] (tiota.north) -- (diota.west);
+    
+    %Connections from Data space layer
+    \path [connect] (dnabobil.east) -- (atraffic.south);
+    \path [connect] (ddatex.east) -- (atraffic.south);
+    \path [connect] (dentur.east) -- (atraffic.south);
+    \path [connect] (datb.east) -- node[right, near start]{{\color{red}?}} (apay.south);
+    \path [connect] (davis.east) -- (atraffic.south);
+    \path [connect] (davis.east) -- (aiota.south);
+    \path [connect] (dabb.east) -- (atraffic.south);
+    \path [connect] (dbikes.east) -- (atraffic.south);
+    \path [connect] (dttc.east) -- (atraffic.south);
+    \path [connect] (dflight.east) -- (atraffic.south);
+    \path [connect] (dtaxi.east) -- (atraffic.south);
+    \path [connect] (diota.east) -- (aiota.south);
+    %node[box, draw, fill=green!20,right, near start]{api}
+    %Connections from Application layer
+    \path [connect] (apay.north) |- node[right, near start]{{\color{red}?}} (2.5,-7) -| (aapp.130);
+    \path [connect] (atraffic.60) -- (0.4, -4.5) -| (straffic.south);
+    \path [connect] (aapp.north) -- (3.2,-4.5) -| (sservice.south);
+    \path [connect] (aiota.north) |- (4.5,-7) -| (aapp.50);
+    
+    %Connections from Business layer
+    
+    %Connections from Service layer
+    \path [connect] (sgreen.north) -- (cseamless.south);
+    
+    %Connections from context layer
+\end{tikzpicture}

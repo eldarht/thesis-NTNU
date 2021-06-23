@@ -1,0 +1,21 @@
+\tikzstyle{every node}=[draw=black,thick,anchor=west]
+\tikzstyle{selected}=[draw=red,fill=red!30]
+\tikzstyle{optional}=[dashed,fill=gray!50]
+\begin{tikzpicture}[%
+  grow via three points={one child at (-0.8,-0.7) and
+  two children at (-0.8,-0.7) and (-0.8,-1.4)},
+  edge from parent path={(\tikzparentnode.195) |- (\tikzchildnode.west)}]
+  \node {2 Literature review}
+    child { node {2.1 Research context}}		
+    child { node {2.2 Overview of study area} 
+        child { node {Boundary object approach to learning using EA}}
+        child { node {KA and KM approach to learning using EA}}
+        child { node {Other approaches to learning using EA}}
+    }
+    child [missing] {}				
+    child [missing] {}				
+    child [missing] {}
+    child { node {2.3 Review of current practices}}
+    child { node {2.4 Related works}}
+    child { node {2.5 Summary}};	
+\end{tikzpicture}

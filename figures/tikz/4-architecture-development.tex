@@ -1,0 +1,29 @@
+
+% Define block styles
+\tikzset{
+    decision/.style={diamond, draw, fill=blue!20, text centered, text width = 1.5cm},
+    block/.style={rectangle, draw, fill=blue!20, rounded corners, text width = 1.5cm},
+    line/.style={draw, -latex},
+    textnode/.style={text width=0.5cm}
+}
+
+    
+\begin{tikzpicture}[]
+    % Place nodes
+    \node [block] (components) {Identify and describe components in horizontal layers};
+    \node [block, right= 0.8cm of components] (relationships) {Identify and describe relationships};
+    \node [block, right= 0.8cm of relationships] (perspectives) {Identify stakeholder and data perspectives};
+    \node [decision, right= 0.8cm of perspectives] (iscomplete) {Is model complete};
+    \node [block, above= 0.8cm of relationships] (iterate) {Iterate to add detail};
+    \node [block, right= 0.8cm of iscomplete] (views) {Identify views to visualise};
+
+   
+    % Draw edges
+    \path [line] (components.east) -- (relationships.west);
+    \path [line] (relationships.east) -- (perspectives.west);
+    \path [line] (perspectives.east) -- (iscomplete.west);
+    \path [line] (iscomplete.north) |- node [right] {no} (iterate.east);
+    \path [line] (iterate.west) -| (components.north);
+    \path [line] (iscomplete.east) -- node [above] {yes} (views.west);
+\end{tikzpicture}
+

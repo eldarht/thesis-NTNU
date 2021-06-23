@@ -1,0 +1,59 @@
+\pgfdeclareshape{api}{
+    \savedanchor{\centerpoint}{
+        \pgfpointorigin
+    }
+    %\savedanchor{owner}{
+    %    \centerpoint
+    %    \pgf@x=-2*\ht\pgfnodeparttextbox
+    %}
+    %\savedanchor{user}{
+    %    \centerpoint
+    %    
+    %}
+
+    \anchor{west}{      % Something is causing the anchor to be at origin
+       \centerpoint
+       %\advance \pgf@x by -2*\ht\pgfnodeparttextbox
+       %\pgfpoint{\pgf@x}{\pgf@y}
+    }
+    \anchor{east}{      % Something is causing the anchor to be at origin
+        \centerpoint \pgf@xa=\pgf@x \pgf@ya=\pgf@y
+        %\pgfmathsetlength\pgf@x{2.5*\ht\pgfnodeparttextbox}
+    }
+    \anchor{center}{   
+        \centerpoint
+    }
+
+    \anchor{text}{
+        \centerpoint
+        \pgf@x=+\ht\pgfnodeparttextbox%
+        \pgf@y=-2\ht\pgfnodeparttextbox
+    }
+    
+    \backgroundpath{
+        \centerpoint \pgf@xa=\pgf@x \pgf@ya=\pgf@y
+        \pgfpathmoveto{\pgfpoint{\pgf@xa}{\pgf@ya}}
+        \pgfpathcircle{
+            \pgfpoint{\pgf@xa}{\pgf@ya}
+        }{
+            \ht\pgfnodeparttextbox
+        }
+        \pgfpathmoveto{
+            \pgfpoint{\pgf@xa-1.0*\ht\pgfnodeparttextbox}{\pgf@ya+1.5*\ht\pgfnodeparttextbox}
+        }
+        \pgfpatharc{90}{-90}{1.5*\ht\pgfnodeparttextbox}
+        \pgfpathmoveto{
+            \pgfpoint{-1*\ht\pgfnodeparttextbox}{\pgf@ya}
+        }
+        \pgfpathlineto{
+            \pgfpoint{-2*\ht\pgfnodeparttextbox}{\pgf@ya}
+        }
+        \pgfpathmoveto{
+            \pgfpoint{1.5*\ht\pgfnodeparttextbox}{\pgf@ya}
+        }
+        \pgfpathlineto{
+            \pgfpoint{2.5*\ht\pgfnodeparttextbox}{\pgf@ya}
+        }
+        
+    }
+}

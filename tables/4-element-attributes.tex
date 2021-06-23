@@ -1,0 +1,71 @@
+{\centering
+\begin{longtable}{|p{2.3cm}|p{4.5cm}|p{5cm}|}
+    \hline
+        Grouping & Element & Description/attribute\\ \hline
+        \multirow{3}*{Misc} 
+            & \multirow{4}*{API or interface} & Used to indicate \gls{api} or interfaces. \\ \cline{3-3}
+            & & Attribute: \gls{api} name. \\ \cline{3-3}
+            & & Attribute: \gls{api} ID for lookup. \\ \cline{3-3}
+            & & Attribute: File link or \gls{uri}. \\ \cline{2-3}
+            & \multirow{7}*{Document} & Used to represent documentation or artefact stored outside the current \gls{ea} model. \\ \cline{3-3}
+            & & Can be used refer to other \gls{ea} components, \gls{uml} diagram, organisational charts, system specifications, resource allocations, etc. \\ \cline{3-3}
+            & & Attribute: File name. \\ \cline{3-3}
+            & & Attribute: File description. \\ \cline{3-3}
+            & & Attribute: File link or \gls{uri}. \\ \cline{3-3}
+            & & Attribute: File access description (if link or \gls{uri} is not applicable). \\ \cline{3-3}
+            & & Attribute: File type or comprehension. \\ \cline{2-3}
+            & \multirow{1}*{Organisational component} &  Used to represent a team, group or other organisational structure. \\
+        \hline
+        \multirow{4}*{Relations} 
+            & \multirow{1}*{Indirect relation} &  Used to show an indirect relationship that should be known. \\  \cline{2-3}
+            & \multirow{1}*{Knowledge flow} & Used to show how knowledge flows or is created. \\ \cline{2-3}
+            & \multirow{1}*{Broken relation} & Used to show that a relation is expected, but not implemented or functional. \\ \cline{2-3}
+            & \multirow{1}*{Required relation} & Used to show that a relationship can not be removed. \\
+        \hline
+        \multirow{2}*{Annotation}
+            & \multirow{1}*{Relation aggregation} &  Used to simplify visualisation of many to one or many to many relationships. \\ \cline{2-3}
+            & \multirow{2}*{Importance indicator} &  Used to show that a component or relation is important for development or decision making. \\ \cline{3-3}
+            & & Attribute: Justification \\
+        \hline
+        \multirow{4}*{Resources}
+            & \multirow{5}*{Resource misc} & Used to represent a resource, when no other element can be more descriptive. \\ \cline{3-3}
+            & & Attribute: Resource type. \\ \cline{3-3}
+            & & Attribute: Resource quantity. \\ \cline{3-3}
+            & & Attribute: Resource description. \\ \cline{3-3}
+            & & Attribute: Resource justification.\\ \cline{2-3}
+            & \multirow{4}*{Human Resource} & Used to represent a human resource. \\ \cline{3-3}
+            & & Attribute: Resource quantity. \\ \cline{3-3}
+            & & Attribute: Resource description. \\ \cline{3-3}
+            & & Attribute: Resource justification.\\ \cline{2-3}
+            & \multirow{4}*{Intellectual Resource} & Used to represent a knowledge based resource. \\ \cline{3-3}
+            & & Attribute: Resource quantity. \\ \cline{3-3}
+            & & Attribute: Resource description. \\ \cline{3-3}
+            & & Attribute: Resource justification.\\ \cline{2-3}
+            & \multirow{4}*{Physical Resource} & Used to represent a resource with physical properties. \\ \cline{3-3}
+            & & Attribute: Resource quantity. \\ \cline{3-3}
+            & & Attribute: Resource description. \\ \cline{3-3}
+            & & Attribute: Resource justification.\\ \cline{2-3}
+        \multirow{4}*{Infrastructure} 
+            & \multirow{1}*{Physical misc} & Used to represent a physical entity when no other element is more descriptive. \\ \cline{3-3}
+            & & Attribute: Type. \\ \cline{3-3}
+            & & Attribute: Description. \\ \cline{2-3}
+            & \multirow{1}*{Physical measurement device} & Used to represent data-gathering devices. \\ \cline{3-3}
+            & & Attribute: Data type. \\ \cline{3-3}
+            & & Attribute: Description. \\ \cline{2-3}
+            & \multirow{1}*{Physical computation device} & Used to represent computing devices, servers or similar. \\ \cline{3-3}
+            & & Attribute: Capability. \\ \cline{3-3}
+            & & Attribute: Description. \\ \cline{2-3}
+            & \multirow{1}*{Physical location/building} & Used to represent important locations or buildings. \\ 
+        \hline
+        \multirow{2}*{Knowledge} 
+            & \multirow{1}*{Knowledge sharing process} & Used to represent activities such as meetings, workshops etc that share knowledge between individuals or groups. \\ \cline{3-3}
+            & & Attribute: Process name. \\ \cline{3-3}
+            & & Attribute: Knowledge description. \\ \cline{2-3}
+            & \multirow{1}*{Knowledge recording process} & Used to represent activities such as document writing, meeting recording etc that result in tacit knowledge being converted to explicit knowledge. \\ \cline{3-3}
+            & & Attribute: Process name. \\ \cline{3-3}
+            & & Attribute: Knowledge description. \\
+    \hline
+    
+    \caption{Suggested elements represented in the EA model and optional attributes of those.}
+    \label{tab:4-element-attributes}
+\end{longtable}}

@@ -1,0 +1,47 @@
+
+% Define block styles
+\tikzset{
+    property/.style={rectangle, draw, fill=blue!20, text centered, text width = 3cm},
+    capacity/.style={rectangle, draw, fill=blue!20, rounded corners, text width = 4cm},
+    line/.style={draw, -triangle 90},
+    textnode/.style={text width=0.5cm},
+}
+
+    
+\begin{tikzpicture}[]
+
+    \node [property] (participation) {Participation};
+    \node [property, above= 0.5cm of participation] (malleability) {Malleability};
+    \node [property, below= 0.5cm of participation] (uptodateness) {Up-to-dateness};
+    
+    \node [capacity, right= 2cm of participation] (pragmatic) {Pragmatic capacity};
+    \node [capacity, below= 2cm of pragmatic] (semantic) {Semantic capacity};
+    
+    \node [property, left= 2cm of semantic] (annotation) {Annotation};
+    \node [property, below= 0.5cm of annotation] (visualization) {Visualization};
+    
+    \node [capacity, below= 3cm of semantic] (syntactic) {Syntactic capacity};
+    
+    \node [property, left= 2cm of syntactic] (concreteness) {Concreteness};
+    \node [property, above= 0.5cm of concreteness] (accessibility) {Accessibility};
+    \node [property, below= 0.5cm of concreteness] (modularity) {Modularity};
+    \node [property, below= 0.5cm of modularity] (sharedsyntax) {Shared syntax};
+
+    % Draw edges
+    \path [line] (participation.east) -- (pragmatic.west);
+    \path [line] (malleability.east) -- (pragmatic.north west);
+    \path [line, loosely dashed] (uptodateness.east) -- (pragmatic.south west);
+    
+    \path [line] (annotation.east) -- (semantic.west);
+    \path [line] (visualization.east) -- (semantic.south west);
+    
+    \path [line] (concreteness.east) -- (syntactic.west);
+    \path [line, loosely dashed] (accessibility.east) -- (syntactic.north west);
+    \path [line] (modularity.east) -- (syntactic.west);
+    \path [line] (sharedsyntax.east) -- (syntactic.south west);
+    
+    \path[line] (semantic.north) -- (pragmatic.south);
+    \path[line] (syntactic.north) -- (semantic.south);
+
+\end{tikzpicture}
+

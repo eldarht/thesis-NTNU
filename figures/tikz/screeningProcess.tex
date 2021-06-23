@@ -1,0 +1,83 @@
+\iffalse
+% Define block styles
+\tikzset{
+    source/.style={rectangle split, split parts=2, draw, fill=blue!20, rounded corners, text width=\textheight/4.5},
+    identified/.style={rectangle split, split parts=2, draw, fill=blue!20, rounded corners, text width=\textheight/4.5},
+    screening/.style={diamond, draw, fill=blue!20, text centered, text width = 1.5cm},
+    selected/.style={rectangle split, split parts=2, draw, fill=green!20, text width=\textwidth/4.5},
+    exclusion/.style={rectangle, draw, fill=red!20, rounded corners, text width=\textwidth/4.5},
+    section/.style={rectangle, draw, fill=yellow!20, text width=\textwidth/4.5},
+    line/.style={draw, -latex},
+}
+
+    
+\begin{tikzpicture}[]
+    % Queries
+    \node[Source] () {
+        \nodepart{one}
+            Query
+        \nodepart{two}
+             "Knowledge transfer"  AND "Enterprise Architecture"
+    }
+    \node[Source] () {
+        \nodepart{one}
+            Query
+        \nodepart{two}
+            "Enterprise Architecture" AND "smart cities"
+    }
+    \node[Source] () {
+        \nodepart{one}
+            Query
+        \nodepart{two}
+            cities as learning innovation ecosystems
+    }
+    \node[Source] () {
+        \nodepart{one}
+            Query
+        \nodepart{two}
+            knowledge transfer across cities
+    }
+    \node[Source] () {
+        \nodepart{one}
+            Query
+        \nodepart{two}
+            Learning from "Enterprise Architecture models"
+    }
+    
+    % Other sources
+    \node[Source] () {
+        \nodepart{one}
+            Mentioned
+        \nodepart{two}
+            From author
+    }
+    \node[Source] () {
+        \nodepart{one}
+            Mentioned
+        \nodepart{two}
+            From reference
+    }
+    \node[Source] () {
+        \nodepart{one}
+            Mentioned
+        \nodepart{two}
+            From supervisor
+    }
+    
+    % Identified
+    \node[identified] () {
+        \begin{itemize}[leftmargin=0.3cm]
+            \item total selected (n=89)
+        \end{itemize}
+    }
+    
+    % Screening
+    \node[screening] () {Screening}
+    
+    %Exclusion 
+    \node[exclusion, right of screening] {Rejected (n=18)}
+    
+    %Pending
+    
+\end{tikzpicture}
+\fi

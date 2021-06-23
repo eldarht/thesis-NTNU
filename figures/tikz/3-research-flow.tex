@@ -1,0 +1,105 @@
+%\missingfigure{Make diagram show research flow}
+% Define block styles
+\tikzset{
+    objective/.style={rectangle, draw, fill=blue!20, rounded corners, text width=\textheight/4.5},
+    method/.style={rectangle, draw, fill=green!20, text width=\textwidth/4.5},
+    action/.style={rectangle, draw, fill=blue!20, text width=\textwidth/4.5},
+    gap/.style={rectangle, draw, fill=red!20, rounded corners, text width=\textwidth/4.5},
+    section/.style={rectangle, draw, fill=yellow!20, text width=\textwidth/4.5},
+    line/.style={draw, -latex},
+    box/.style={rectangle, draw, fill=white, align=center, text height=0.9\textwidth}
+}
+
+    
+\begin{tikzpicture}[]
+    
+    % research gaps and problems
+    \node[gap] at (-0.5,4) (citylearning) {Limited literature on how to learn from smart city projects and initiatives};
+    \node[gap, below=1cm of citylearning] (ealearning) {Limited literature on how useful \gls{ea} is for learning};
+    \node[gap, below=3.5cm of ealearning] (eaf+city) {The \gls{eaf} proposed in +CityxChange does not focus on learning};
+    
+    % Research objectives
+    \node[objective] at (5.2,4) (ro1) {RO1: Gain a better understanding of how the current state of \gls{ea} facilitates learning and how the proposed smart city \gls{eaf} diverge.};
+    \node[objective, below=0.3cm of ro1] (ro2) {RO2: Understand which aspects of \gls{ea} is perceived to be of use and enhance learning in smart city projects.};
+    \node[objective, below=0.3cm of ro2] (ro3) {RO3:Understand how \gls{ea} can transfer and retain knowledge within an organisation and shared with other organisations.};
+    \node[objective, below=0.3cm of ro3] (ro4) {RO4:Provide recommendations for improvement to the \gls{eaf} used in +CityxChange.};
+    
+    % Research methods
+    \node[method] at (10,5.5) (literaturereview) {Literature review};
+    \node[method, below= 4cm of literaturereview] (survey) {Survey method};
+    \node[method, below= 3cm of survey] (model) {Model proposition};
+    \node[method, below= 0.5 of model] (expert) {Expert evaluation};
+
+    %Research actions
+    \node[action, below= 0.5cm of literaturereview] (initliterature) {Initial literature review};
+    \node[action, below= 0.5cm of initliterature] (literature) {Continued literature review};
+    \node[action, below= 0.5cm of survey] (questionnaire) {Questionnaire with individuals working on +CityxChange};
+    \node[action, below=0.5 of expert] (interview) {Interview};
+    
+    %Documented by
+    % \node[section] at (15.3,3.7) (secliterature) {Chap1: Introduction};
+    \node[section] at (15.3,3.7) (secliterature) {Chap2: Literature review};
+    % \node[section, below= 2.8cm of secliterature] (secmethod) {Chap3: Methodology};
+    \node[section, below= 1.5cm of secliterature] (secgathering) {Chap4: Gathering data from +CityxChange};
+    % \node[section, below= 2.8cm of secliterature] (seccxcevaluation) {Chap5: +CityxChange EAF evaluation};
+    \node[section, below= 2.5cm of secgathering] (secmodel) {Chap6: Proposed model};
+    \node[section, below= 0.3cm of secmodel] (secevaluation) {Chap7: Model evaluation};
+    \node[section, below= 0.2cm of secevaluation] (secresult) {Chap8: Results and discussion};
+    % \node[section, below= 2.8cm of secliterature] (secmodel) {Chap6: Proposed model};
+    
+    % Draw connections);
+    \path [line] (initliterature.10) -|  (12,6.5) -- node [near end, above] (informliterature) {Informs} (-2.7,6.5) |- (citylearning.west);
+    \path [line] (initliterature.10) -|  (12,6.5) -- (-2.7,6.5) |- (ealearning.west);
+    
+    \path [line] (citylearning.east) -- node [midway, above, sloped] {led to} (ro1.west);
+    \path [line] (citylearning.east) -- (ro2.west);
+    \path [line] (ealearning.east) -- (ro1.west);
+    \path [line] (ealearning.east) -- (ro2.west);
+    \path [line] (ealearning.east) --  node [midway, above] {led to} (ro3.west);
+    \path [line] (ealearning.east) -- (ro3.west);
+    \path [line] (eaf+city.east) -- node [midway, above, sloped] {led to} (ro4.west);
+    
+    \path [line] (ro1.east) -- (initliterature.west);
+    \path [line] (ro1.east) -- (literature.west);
+    \path [line] (ro2.east) -- (literature.west);
+    \path [line] (ro2.east) -- (survey.west);
+    \path [line] (ro3.east) -- (literature.west);
+    \path [line] (ro3.east) -- (survey.west);
+    \path [line] (ro4.east) -- (model.west);
+    
+    \path[line] (survey.south) -- node [midway, right] {Using} (questionnaire.north);
+    \path[line] (literaturereview.south) -- node [midway, right] {With} (initliterature.north);
+    \path[line] (initliterature.south) -- node [midway, right] {Followed by} (literature.north);
+    \path[line] (initliterature.east) -- node [midway, above] {reported in} (secliterature.west);
+    \path[line] (literature.east) -- (secliterature.west);
+    \path[line] (survey.east) -- node [midway, above] {reported in} (secgathering.west);
+    \path[line] (model.south) -- node [midway, right] {Evaluated with} (expert.north);
+    \path[line] (model.east) -- node [midway, above, sloped] {reported in} (secmodel.west);
+    \path[line] (expert.south) -- node [midway, right] {Using} (interview.north);
+    \path[line] (expert.east) -- node [midway, above, sloped] {reported in} (secevaluation.west);
+    
+    \path[line] (secliterature.east) -- (17.3,3.7) |- (secresult.east);
+    \path[line] (secgathering.east) -- (17.3,0.9) |- (secresult.east);
+    \path[line] (secmodel.east) -- (17.3,-2.9) |- (secresult.east);
+    \path[line] (secevaluation.east) -- (17.3,-4.2) |- (secresult.east);
+    
+    % Lanes
+    \begin{scope}[on background layer]
+        \node[box, text width=\textheight/4.5, 
+            label={Gaps in the literature}]  (existingliterature) {};
+        \node[box, right=1mm of existingliterature, text width=\textheight/4.2, 
+            label={Research objectives}] (objectives) {};
+        \node[box, right=1mm of objectives, text width=\textheight/4.9,
+            label={Research process}]  (methods) {};
+        \node[box, right=1mm of methods, text width=\textheight/5,
+        label={Thesis structure}]  (documented) {};
+    \end{scope}
+    
+    % Diagram explanation
+    \node[gap, above= of existingliterature] (explaingap) {<Gap in the literature/problem>};
+    \node[objective, right=2mm of explaingap] (explainobjective) {<Research objective>};
+    \node[method, right=2mm of explainobjective] (explainmethod) {<Research method>};
+    \node[action, right=2mm of explainmethod] (explainaction) {<Research activity>};
+    \node[section, right=2mm of explainaction] (explainsection){<Thesis section/chapter>};
+    
+\end{tikzpicture}

@@ -1,0 +1,117 @@
+%New development process
+% Define block styles
+\tikzset{
+    decision/.style={diamond, draw, fill=blue!20, text centered, text width = 1.5cm},
+    block/.style={rectangle, draw, fill=blue!20, rounded corners, text width = 1.8cm},
+    mindset/.style={
+        rectangle split, rectangle split parts=2, 
+        rectangle split part fill={yellow!20,green!20},
+        draw, text width=2.4cm},
+    to/.style={draw, -latex},
+    connect/.style={draw, dashed},
+    textnode/.style={text width=0.5cm}
+}
+
+    
+\begin{tikzpicture}[]
+    % Main steps
+    \node[block, left= 0.8cm of components] (users) {Consider users interested in this model};
+    \node [block] (components) {Identify and describe components in horizontal layers};
+    \node [block, right= 0.8cm of components] (documentation) {Identify documentation and knowledge reservoirs};
+    \node[block, right= 0.8cm of documentation, yshift=1.2cm] (resources) {Identify and describe resources};
+    \node [block, right= 0.8cm of documentation, yshift=-1.2cm] (relationships) {Identify and describe relationships};
+    \node [block, right= 0.8cm of relationships, yshift=1.2cm] (perspectives) {Identify stakeholder and data perspectives};
+    \node [decision, right= 0.5cm of perspectives] (iscomplete) {Is model complete};
+    \node [block, above= 0.5cm of resources] (iterate) {Iterate to add detail};
+    \node [block, right= 0.6cm of iscomplete] (views) {Identify views to visualise};
+
+    % Mindset
+    \node[mindset, below=0.8cm of users] (mindusers) { \nodepart{one} \begin{center} Mindset \end{center}
+        \nodepart{two}
+        \begin{itemize}[leftmargin=0.3cm]
+            \item Why is the model needed?
+            \item Who is the model for?
+        \end{itemize}
+    };
+    
+    \node[mindset, below=0.8cm of components] (mindcomponents) { \nodepart{one} \begin{center} Mindset \end{center}
+        \nodepart{two}
+        \begin{itemize}[leftmargin=0.3cm]
+            \item What is relevant for the models users?
+            \item What is needed to make decisions?
+            \item How does the \gls{ea} look to outsiders?
+        \end{itemize}
+    };
+    
+    \node[mindset, below=0.8cm of documentation] (minddocumentation) { \nodepart{one} \begin{center} Mindset \end{center}
+        \nodepart{two}
+        \begin{itemize}[leftmargin=0.3cm]
+            \item Where can users find more information?
+            \item What documentation needs to be updated on changes?
+        \end{itemize}
+    };
+    
+    \node[mindset, below=0.8cm of relationships] (mindrelationships) { \nodepart{one}
+    \begin{center} Mindset \end{center}
+        \nodepart{two}
+        \begin{itemize}[leftmargin=0.3cm]
+            \item Who and what is communicated?
+            \item Which protocols or processes do they use?
+            \item Which techniques are used to share/retain knowledge?
+            \item How is communication documented?
+        \end{itemize}
+    };
+    
+    \node[mindset, below=0.8cm of perspectives] (mindperspectives) { \nodepart{one}
+    \begin{center} Mindset \end{center}
+        \nodepart{two}
+        \begin{itemize}[leftmargin=0.3cm]
+            \item Who has an interest in the systems completion?
+            \item Who participates in development?
+        \end{itemize}
+    };
+    
+    \node[mindset, below=0.8cm of views] (mindviews) { \nodepart{one}
+    \begin{center} Mindset \end{center}
+        \nodepart{two}
+        \begin{itemize}[leftmargin=0.3cm]
+            \item Do groups interpret the system differently?
+            \item Do groups have different terminology?
+            \item Are there things that are likely to be misinterpreted?
+            \item Can unnecessary information be hidden?
+        \end{itemize}
+    };
+    
+    \node[mindset, below=1.5cm of iscomplete] (mindresources) { \nodepart{one}
+    \begin{center} Mindset \end{center}
+        \nodepart{two}
+        \begin{itemize}[leftmargin=0.3cm]
+            \item Have human resources been allocated?
+            \item Have financial resources been allocated?
+            \item Are there missing resources?
+            \item Could resources improve the system?
+        \end{itemize}
+    };
+    
+    % Draw flow
+    \path [to] (users.east) -- (components.west);
+    \path [to] (components.east) -- (documentation.west);
+    \path [to] (documentation.east) -| (4.3,-1.2) -- node [below, xshift=-0.2cm] {And} (relationships.west);
+    \path [to] (documentation.east) -| (4.3,1.2) -- node [above, xshift=-0.2cm] {And} (resources.west);
+    \path [to] (relationships.east) -| (7,0) -- (perspectives.west);
+    \path [to] (resources.east) -| (7,0) -- (perspectives.west);
+    \path [to] (perspectives.east) -- (iscomplete.west);
+    \path [to] (iscomplete.north) |- node [right] {no} (iterate.east);
+    \path [to] (iterate.west) -| (components.north);
+    \path [to] (iscomplete.east) -- node [above] {yes} (views.west);
+    
+    % Draw supplimentary connections
+    \path[connect] (users) -- (mindusers);
+    \path[connect] (components) -- (mindcomponents);
+    \path[connect] (documentation) -- (minddocumentation);
+    \path[connect] (relationships) -- (mindrelationships);
+    \path[connect] (perspectives) -- (mindperspectives);
+    \path[connect] (views) -- (mindviews);
+    \path[connect] (resources.north) |- (10, 2.5) |- (mindresources.north west);
+\end{tikzpicture}
+
